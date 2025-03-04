@@ -1,0 +1,223 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    letter-spacing: 0.3px;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+$dark-color: #101010;
+$white-color: #fff;
+$light-dark-color: #2d2d2d;
+
+body {
+    font-family: "Inter Tight", sans-serif;
+    background: $dark-color;
+    color: $white-color;
+}
+
+.container {
+    max-width: 1400px;
+    width: 95%;
+    margin: 0 auto;
+}
+
+.navbar {
+    padding: 2rem 0;
+    background: $dark-color;
+
+    > .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        > .navbar-logo {
+            text-decoration: none;
+            width: 12rem;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        .navbar-search {
+            input {
+                border: none;
+                outline: none;
+                background: $light-dark-color;
+                color: $white-color;
+                font-size: 1.6rem;
+                font-weight: 400;
+                padding: 0.7rem 2rem;
+                border-radius: 20rem;
+                font-family: inherit;
+
+                &::placeholder {
+                    font-family: inherit;
+                    color: inherit;
+                }
+            }
+        }
+    }
+}
+
+// header-section
+.header-section {
+    height: 80vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9));
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+
+    .header-content {
+        position: absolute;
+        top: 50%;
+        left: 4%;
+        transform: translateY(-50%);
+        max-width: 65rem;
+
+        .header-title {
+            font-size: 5rem;
+            font-weight: 600;
+            color: $white-color;
+        }
+
+        .header-overview {
+            margin-top: 1rem;
+            color: $white-color;
+            font-weight: 400;
+            font-size: 1.8rem;
+            letter-spacing: 0.5px;
+            line-height: 1.6;
+        }
+
+        .header-btn {
+            margin-top: 2rem;
+            border: none;
+            outline: none;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            border-radius: 0.4rem;
+            cursor: pointer;
+            background: $white-color;
+            padding: 0.7rem 2rem;
+            font-family: inherit;
+
+            &:hover {
+                background: lighten($white-color, 10%);
+            }
+
+            span {
+                font-size: 2.2rem;
+                font-weight: 500;
+                color: $dark-color;
+                display: inline-block;
+                font-family: inherit;
+            }
+
+            .play-icon {
+                font-size: 3rem;
+            }
+        }
+    }
+}
+
+// movies row
+.movies-section {
+    padding: 4rem 0 4rem 4rem;
+    background: $dark-color;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+
+    .moviesRow {
+        background: $dark-color;
+
+        .moviesRow-title {
+            color: $white-color;
+            font-size: 2rem;
+            font-weight: 500;
+            letter-spacing: 0.7px;
+        }
+
+        .moviesRow-movies {
+            margin-top: 1rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 2rem;
+            overflow-x: auto;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+
+            .movieCard {
+                flex-shrink: 1;
+
+                img {
+                    max-width: 20rem;
+                    transition: all 0.3s ease;
+                    cursor: pointer;
+
+                    &:hover {
+                        transform: translateY(-10px) scale(1.1);
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+    html {
+        font-size: 56.25%; // Adjust font size for smaller screens
+    }
+
+    .header-section {
+        height: 60vh;
+
+        .header-content {
+            .header-title {
+                font-size: 4rem;
+            }
+
+            .header-overview {
+                font-size: 1.6rem;
+            }
+
+            .header-btn {
+                padding: 0.6rem 1.8rem;
+
+                span {
+                    font-size: 2rem;
+                }
+
+                .play-icon {
+                    font-size: 2.5rem;
+                }
+            }
+        }
+    }
+
+    .movies-section {
+        padding: 2rem 0 2rem 2rem;
+
+        .moviesRow-movies {
+            gap: 1.5rem;
+
+            .movieCard {
+                img {
+                    max-width: 16rem;
+                }
+            }
+        }
+    }
+}
